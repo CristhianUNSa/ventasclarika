@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using DAL.Repositories;
+using ExamenNet.ViewModels;
 using System.Web.Mvc;
 
 namespace ExamenNet.Controllers
@@ -10,7 +8,12 @@ namespace ExamenNet.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var listaClientes = ClientesRepository.TraerClientes();
+            var viewModel = new HomeViewModel()
+            {
+                Clientes = listaClientes
+            };
+            return View(viewModel);
         }
 
         public ActionResult About()

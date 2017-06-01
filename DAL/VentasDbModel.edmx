@@ -233,7 +233,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="TestIngresoEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="VentasContext" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Clientes" EntityType="Self.Cliente" />
           <EntitySet Name="Productos" EntityType="Self.Producto" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
@@ -306,7 +306,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="TestIngresoModelStoreContainer" CdmEntityContainer="TestIngresoEntities">
+        <EntityContainerMapping StorageEntityContainer="TestIngresoModelStoreContainer" CdmEntityContainer="VentasContext">
           <EntitySetMapping Name="Clientes">
             <EntityTypeMapping TypeName="TestIngresoModel.Cliente">
               <MappingFragment StoreEntitySet="Clientes">
