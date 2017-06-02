@@ -12,6 +12,7 @@
                     }
                 }
                 $("#spnTotal").text("$" + total);
+                $("#spnNombreCliente").text($("#Clientes option:selected").text());
             })
             .fail(function(err) {
                 alert("Ocurrió un problema al procesar su solicitud.\n" + err);

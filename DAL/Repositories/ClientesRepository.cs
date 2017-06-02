@@ -11,7 +11,7 @@ namespace DAL.Repositories
         {
             using (var db = new VentasContext())
             {
-                return db.Clientes.ToList();
+                return db.Clientes.OrderBy(c => c.Nombre).ToList();
             }
         }
 

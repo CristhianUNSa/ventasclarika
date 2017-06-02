@@ -20,7 +20,7 @@ namespace ExamenNet.Controllers
             }
             catch (Exception)
             {
-                return Content("Ocurrió un problema conectando con la base de datos, por favor intente más tarde");
+                return Content("El sistema se encuentra momentáneamente fuera de servicio. Estamos trabajando para solucionar el inconveniente");
             }
 
         }

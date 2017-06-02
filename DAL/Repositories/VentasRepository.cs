@@ -9,7 +9,7 @@ namespace DAL.Repositories
         {
             using (var db = new VentasContext())
             {
-                return db.GetVentasByCliente(clienteId).ToList();
+                return db.GetVentasByCliente(clienteId).OrderByDescending(v => v.Cantidad).ToList();
             }
         }
     }
