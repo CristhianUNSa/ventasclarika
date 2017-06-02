@@ -1,6 +1,6 @@
 ﻿function traerVentasCliente(clienteId) {
     if (clienteId > 0) {
-        $.getJSON("api/ventas?ClienteID=" + clienteId)
+        $.getJSON("/api/ventas?ClienteID=" + clienteId)
             .done(function(data) {
                 var html = $("#theTmpl").render([data]);
                 $("#divVentas").html(html);
@@ -12,6 +12,9 @@
                     }
                 }
                 $("#spnTotal").text("$" + total);
+            })
+            .fail(function(err) {
+                alert("Ocurrió un problema al procesar su solicitud.\n" + err);
             });
     } else {
         $("#divVentas").empty();

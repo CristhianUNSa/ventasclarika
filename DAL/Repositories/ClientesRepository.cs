@@ -1,6 +1,7 @@
 ﻿
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
@@ -14,11 +15,12 @@ namespace DAL.Repositories
             }
         }
 
-        public static void AgregarCliente(Cliente cliente)
+        public static async Task AgregarCliente(Cliente cliente)
         {
             using (var db = new VentasContext())
             {
                 db.Clientes.Add(cliente);
+                await db.SaveChangesAsync();
             }
         }
 

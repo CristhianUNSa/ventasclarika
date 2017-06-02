@@ -1,4 +1,5 @@
 ﻿using DAL.Repositories;
+using System;
 using System.Web.Http;
 
 namespace ExamenNet.Controllers.api
@@ -8,8 +9,15 @@ namespace ExamenNet.Controllers.api
         [HttpGet]
         public IHttpActionResult TraerVentas([FromUri]int clienteId)
         {
-            var ventas = VentasRepository.TraerVentasDeCliente(clienteId);
-            return Ok(ventas);
+            try
+            {
+                var ventas = VentasRepository.TraerVentasDeCliente(clienteId);
+                return Ok(ventas);
+            }
+            catch (Exception)
+            {
+                return BadRequest("No se pudo conectar a la base de datos");
+            }
         }
     }
 }

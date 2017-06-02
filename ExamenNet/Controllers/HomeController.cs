@@ -1,5 +1,6 @@
 ﻿using DAL.Repositories;
 using ExamenNet.ViewModels;
+using System;
 using System.Web.Mvc;
 
 namespace ExamenNet.Controllers
@@ -8,12 +9,20 @@ namespace ExamenNet.Controllers
     {
         public ActionResult Index()
         {
-            var listaClientes = ClientesRepository.TraerClientes();
-            var viewModel = new HomeViewModel()
+            try
             {
-                Clientes = listaClientes
-            };
-            return View(viewModel);
+                var listaClientes = ClientesRepository.TraerClientes();
+                var viewModel = new HomeViewModel()
+                {
+                    Clientes = listaClientes
+                };
+                return View(viewModel);
+            }
+            catch (Exception)
+            {
+                return Content("Ocurrió un problema conectando con la base de datos, por favor intente más tarde");
+            }
+
         }
 
         public ActionResult About()
