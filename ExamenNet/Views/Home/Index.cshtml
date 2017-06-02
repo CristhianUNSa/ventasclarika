@@ -21,6 +21,9 @@
             <div id="divVentas">
                 
             </div>
+            <div class="pull-right">
+                Total: <span id="spnTotal"></span>
+            </div>
         </div>
     </div>
 </div>
@@ -44,8 +47,24 @@
 </div><!-- /.modal -->
 
 @section scripts{
-    <script>
-        
-
+    <script id="theTmpl" type="text/x-jsrender">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Producto</th>
+                    <th class="text-center">Cantidad</th>
+                    <th class="text-right">Monto</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{for #data}}
+                <tr>
+                    <td>{{:Producto}}</td>
+                    <td class="text-center">{{:Cantidad}}</td>
+                    <td class="text-right">{{:Monto}}</td>
+                </tr>
+                {{/for}}
+            </tbody>
+        </table>
     </script>
 }

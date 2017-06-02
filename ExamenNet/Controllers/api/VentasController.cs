@@ -1,5 +1,4 @@
 ﻿using DAL.Repositories;
-using ExamenNet.Dtos;
 using System.Web.Http;
 
 namespace ExamenNet.Controllers.api
@@ -7,9 +6,9 @@ namespace ExamenNet.Controllers.api
     public class VentasController : ApiController
     {
         [HttpGet]
-        public IHttpActionResult TraerVentas(ClienteDto cliente)
+        public IHttpActionResult TraerVentas([FromUri]int clienteId)
         {
-            var ventas = VentasRepository.TraerVentasDeCliente(cliente.ClienteID);
+            var ventas = VentasRepository.TraerVentasDeCliente(clienteId);
             return Ok(ventas);
         }
     }
